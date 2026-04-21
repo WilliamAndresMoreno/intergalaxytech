@@ -1,10 +1,10 @@
-# 🚀 IntergalaxyTech API
+# IntergalaxyTech API
 
 Sistema de gestión de solicitudes de personajes del universo **Rick and Morty** para eventos y producciones audiovisuales — construido con **.NET 8 Web API**, Clean Architecture, EF Core y Docker.
 
 ---
 
-## 📐 Decisión de Arquitectura
+## Decisión de Arquitectura
 
 Se eligió **Arquitectura en Capas** con separación clara de responsabilidades:
 
@@ -24,7 +24,7 @@ Para una prueba técnica acotada (1–3 h), la arquitectura en capas ofrece la m
 
 ---
 
-## ⚙️ Stack Técnico
+## Stack Técnico
 
 | Tecnología | Versión | Uso |
 |---|---|---|
@@ -38,7 +38,7 @@ Para una prueba técnica acotada (1–3 h), la arquitectura en capas ofrece la m
 
 ---
 
-## 🏃 Correr Localmente (sin Docker)
+## Correr Localmente (sin Docker)
 
 ### Prerrequisitos
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
@@ -67,7 +67,7 @@ La API quedará disponible en:
 
 ---
 
-## 🐳 Correr con Docker y docker-compose
+## Correr con Docker y docker-compose
 
 ```bash
 # 1. Copiar el archivo de variables de entorno
@@ -86,7 +86,7 @@ La API quedará disponible en **http://localhost:8080**
 
 ---
 
-## 🗄️ Migraciones EF Core
+## Migraciones EF Core
 
 ```bash
 # Crear una migración nueva
@@ -107,7 +107,7 @@ dotnet ef database update <MigracionAnterior> \
 
 ---
 
-## 🧪 Pruebas Unitarias
+## Pruebas Unitarias
 
 ```bash
 # Correr todos los tests
@@ -131,7 +131,7 @@ dotnet test IntergalaxyTech.sln --collect:"XPlat Code Coverage"
 
 ---
 
-## 🌐 Endpoints Disponibles
+## Endpoints Disponibles
 
 ### Personajes
 ```
@@ -156,7 +156,7 @@ GET    /health                                Health check (requerido por Azure 
 
 ---
 
-## ☁️ Diseño para Azure
+## Diseño para Azure
 
 | Necesidad del sistema | Servicio Azure | Razón |
 |---|---|---|
@@ -168,7 +168,7 @@ GET    /health                                Health check (requerido por Azure 
 
 ---
 
-## 🔄 Ejercicio de Migración — Web Forms → .NET 8
+## Ejercicio de Migración — Web Forms → .NET 8
 
 ### Problemas identificados en el código legado
 
@@ -231,7 +231,7 @@ public async Task<SolicitudDto> CrearSolicitudAsync(CrearSolicitudRequest reques
 
 ---
 
-## 🧑‍💼 Preguntas de Liderazgo Técnico
+## Preguntas de Liderazgo Técnico
 
 ### 1. ¿Cómo planificarías la migración completa del sistema legado en etapas graduales?
 
@@ -301,8 +301,6 @@ main          ← producción (protegida, solo merge desde staging)
 
 ---
 
-## 🤖 Herramientas de IA Utilizadas
+## Herramientas de IA Utilizadas
 
-- **Claude (Anthropic)** — Generación y revisión de la estructura completa del proyecto, código de capas, tests unitarios, análisis del código legado y documentación.
-
-El candidato revisó, validó y ajustó todo el código generado para asegurar coherencia arquitectónica, correctitud de las transiciones de estado, y alineación con los requerimientos de la prueba.
+- **Gemini** — Generación código de capas, tests unitarios, análisis del código legado y documentación.
