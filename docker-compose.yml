@@ -1,0 +1,42 @@
+version: "3.9"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# docker-compose.yml — IntergalaxyTech
+#
+# La connection string se inyecta como variable de entorno, simulando lo que
+# en Azure sería un secreto en Key Vault o una App Service Configuration.
+#
+# Para Azure SQL Database, reemplazar el valor de CONNECTION_STRING en el
+# archivo .env o en las App Settings del App Service:
+#   "Server=tcp:<server>.database.windows.net,1433;Initial Catalog=IntergalaxyDB;..."
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: intergalaxytech_api
+    ports:
+      - "8080:8080"
+    environment:
+      # ── Connection string inyectada vía variable de entorno ──────────
+      # Simula un secreto de Azure Key Vault o App Service Configuration.
+      # En producción Azure, NUNCA poner credenciales reales aquí.
+      - ConnectionStrings__DefaultConnection=${CONNECTION_STRING:-Data Source=/app/data/intergalaxytech.db}
+      - RickAndMortyApi__BaseUrl=https://rickandmortyapi.com/api/
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT:-Production}
+    volumes:
+      # Volumen persistente para la base de datos SQLite
+      - sqlite_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  sqlite_data:
+    driver: local

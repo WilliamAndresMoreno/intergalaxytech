@@ -1,0 +1,31 @@
+## .gitignore para IntergalaxyTech — .NET 8 / Azure
+
+# Build outputs
+bin/
+obj/
+out/
+publish/
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Secrets & env
+.env
+*.db
+*.db-shm
+*.db-wal
+
+# Nuget
+*.nupkg
+packages/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
